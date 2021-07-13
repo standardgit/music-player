@@ -1,38 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: #DDD;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.player {
+    display: block;
+    background-color: #313131;
+    padding: 50px;
+    border-radius: 16px;
+    box-shadow: inset-6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(225, 225, 225, 0.4);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.player > h4 {
+    color: #FFF;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.player > p {
+    color: #AAA;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 400;
 }
 
-.App-link {
-  color: #61dafb;
+.player-details .details-img {
+    position: relative;
+    width: fit-content;
+    margin: 50px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player-details .details-img img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 50%;
+    box-shadow: inset-6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(225, 225, 225, 0.4);
+}
+
+.player-details .details-title {
+    color: #EEE;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(225, 225, 225, 0.4);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.player-details .details-artist {
+    color: #AAA;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(225, 225, 225, 0.4);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.player-controls .play-btn {
+    display: flex;
+    margin: 0 30px;
+    padding: 20px;
+    box-shadow:
+        4px 4px 10px rgba(0, 0, 0, 0.8),
+        -4px -4px 10px rgba(225, 225, 225, 0.4),
+        inset -4px -4px 10px rgba(0, 0, 0, 0.4),
+        inset 4px 4px 10px rgba(225, 225, 225, 0.4);
+    border: none;
+    outline: none;
+    background-color: #FFCE00;
+    color: #FFF ;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.player-controls .skip-btn {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
 }
