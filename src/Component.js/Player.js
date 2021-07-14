@@ -1,16 +1,54 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PlayerDetails from './PlayerDetails';
 import PlayerControls from './PlayerControls'
 import PlayerControl from './PlayerControls';
 
 const Player = (props) => {
+
+    const audio = useRef(null)
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    useEffect (() => {
+        if (isPlaying) {
+            audio.current.play();
+        } else {
+            audio.current.pause()
+        }
+    })
+
+    const skipSong= (forwards = true) => {
+        if (forwards) {
+           props.setCurrentSongIndex(() => {
+               let temp = props.currentSongIndex;
+               temp++;
+
+               if (temp > props.songs.length - 1) {
+                   temp = 0
+               }
+
+               return temp; 
+           }) 
+        } else {
+            props.setCurrentSongIndex(() => {
+                let temp = props.currentSongIndex;
+                temp--;
+ 
+                if (temp < 0) {
+                    temp = props.songs.length - 1
+                }
+ 
+                return temp; 
+            }) 
+        }
+    }
+
     return (
         <div className="player">
-            <audio></audio>
+            <audio src = {props.songs[props.currentSongIndex].src} ref={audio}></audio>
             <h4>Playing now</h4>
-            <PlayerDetails song={props.song} />
-            <PlayerControl />
-    <p><strong>Next up:</strong>{props.nextSong.title} by {props.nextSong.artist}</p>
+            <PlayerDetails song={props.songs[props.currentSongIndex]} />
+            <PlayerControl isPlaying={isPlaying} setIsPlaying={setIsPlaying} skipSong={skipSong}/>
+            <p><strong>Next up:</strong> {props.songs[props.nextSongIndex].title} by {props.songs[props.nextSongIndex].artist}</p>
         </div>
     );
 };
