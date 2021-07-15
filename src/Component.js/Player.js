@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PlayerDetails from './PlayerDetails';
-import PlayerControls from './PlayerControls'
 import PlayerControl from './PlayerControls';
+import Slider from './Slider';
 
 const Player = (props) => {
 
@@ -9,10 +9,14 @@ const Player = (props) => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     useEffect (() => {
+        const roll = document.getElementsByClassName('details-img')
         if (isPlaying) {
             audio.current.play();
+             
+
         } else {
             audio.current.pause()
+           
         }
     })
 
@@ -47,6 +51,7 @@ const Player = (props) => {
             <audio src = {props.songs[props.currentSongIndex].src} ref={audio}></audio>
             <h4>Playing now</h4>
             <PlayerDetails song={props.songs[props.currentSongIndex]} />
+            <Slider onChange={onChange} percentage={percentage}/>
             <PlayerControl isPlaying={isPlaying} setIsPlaying={setIsPlaying} skipSong={skipSong}/>
             <p><strong>Next up:</strong> {props.songs[props.nextSongIndex].title} by {props.songs[props.nextSongIndex].artist}</p>
         </div>

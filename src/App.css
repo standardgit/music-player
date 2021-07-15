@@ -43,15 +43,16 @@ body {
     position: relative;
     width: fit-content;
     margin: 50px auto;
+    
 }
 
-.player-details .details-img img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 250px;
+.player-details .details-img  {
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    box-shadow: inset-6px -6px 12px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(225, 225, 225, 0.4);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset -6px -6px  8px rgba(0, 0, 0, 0.8), inset 6px 6px 12px rgba(225, 225, 225, 0.4);
 }
 
 .player-details .details-title {
@@ -102,4 +103,15 @@ body {
     cursor: pointer;
     color: #888;
     font-size: 18px;
+}
+
+.roll{
+    animation: turn 10s infinite;
+}
+
+@keyframes turn {
+    
+    100%{
+        transform: rotate(360deg);
+    }
 }
