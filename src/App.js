@@ -5,7 +5,7 @@ import './App.css'
 import fireboy from './images/image-1.jpg';
 import cardi from './images/image-2.jpg';
 import adekunle from './images/image-3.jpg';
-import flow from './images/image-3.jpg';
+import flow from './images/image-4.jpg';
 
 import party from './songs/mp1.mp3';
 import till from './songs/mp2.mp3';
@@ -39,6 +39,7 @@ function App() {
       img_src: flow
     }
   ]);
+
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
